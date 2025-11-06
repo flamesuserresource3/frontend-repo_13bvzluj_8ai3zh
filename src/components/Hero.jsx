@@ -1,67 +1,71 @@
+import Spline from "@splinetool/react-spline";
 import { motion } from "framer-motion";
-import { Sparkles, Heart } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden">
-      {/* Soft gradient background blobs */}
-      <div className="pointer-events-none absolute inset-0 -z-0">
-        <div className="absolute -top-24 -left-20 h-72 w-72 rounded-full bg-pink-200/60 blur-3xl" />
-        <div className="absolute top-32 -right-10 h-80 w-80 rounded-full bg-purple-200/60 blur-3xl" />
-        <div className="absolute bottom-0 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-amber-100/70 blur-3xl" />
+    <section className="relative h-[85vh] w-full overflow-hidden bg-[#0b1020]">
+      {/* Spline 3D scene */}
+      <div className="absolute inset-0">
+        <Spline
+          scene="https://prod.spline.design/wwTRdG1D9CkNs368/scene.splinecode"
+          style={{ width: "100%", height: "100%" }}
+        />
       </div>
 
-      <div className="relative mx-auto flex max-w-6xl flex-col items-center px-6 py-24 text-center">
+      {/* Gradient glow overlays (non-blocking) */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -left-10 -top-10 h-80 w-80 rounded-full bg-blue-500/20 blur-3xl" />
+        <div className="absolute bottom-10 right-10 h-96 w-96 rounded-full bg-indigo-500/20 blur-3xl" />
+        <div className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400/10 blur-2xl" />
+      </div>
+
+      {/* Content overlay */}
+      <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-2 text-sm text-rose-500 shadow-sm ring-1 ring-rose-100 backdrop-blur"
+          transition={{ duration: 0.7 }}
+          className="pointer-events-none inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs text-blue-100/90 backdrop-blur-sm"
         >
-          <Sparkles className="h-4 w-4" />
-          Gentle design for calm minds
+          Elegant, dreamy, and creative — Blue Flame
         </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="mt-6 text-4xl font-semibold leading-tight text-rose-900 sm:text-5xl md:text-6xl"
+          className="mt-5 bg-gradient-to-r from-sky-200 via-cyan-200 to-indigo-200 bg-clip-text text-4xl font-semibold leading-tight text-transparent sm:text-5xl md:text-6xl"
         >
-          Create your serene corner
-          <span className="block bg-gradient-to-r from-rose-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-            with pastel elegance
-          </span>
+          Visual representation of Dora the Explorer
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-rose-700"
+          className="mx-auto mt-4 max-w-2xl text-base text-blue-100/90"
         >
-          Soft colors, rounded cards, and soothing motion come together to craft a
-          modern, feminine aesthetic that feels like a deep, contented breath.
+          Curious, playful, and a little bit magical. I wander through color and light
+          to find new ways to make pixels feel alive.
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-10 flex flex-col items-center gap-4 sm:flex-row"
+          className="mt-8 flex items-center gap-4"
         >
           <a
-            href="#features"
-            className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-rose-300 via-pink-300 to-purple-300 px-6 py-3 text-rose-900 shadow-md transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+            href="#about"
+            className="pointer-events-auto rounded-full bg-gradient-to-r from-sky-400 to-indigo-500 px-6 py-3 text-sm font-medium text-white shadow-lg shadow-sky-700/30 transition-transform hover:-translate-y-0.5"
           >
-            Explore features
-            <Heart className="h-4 w-4 transition-transform group-hover:scale-110" />
+            Meet me
           </a>
           <a
-            href="#testimonials"
-            className="inline-flex items-center gap-2 rounded-full bg-white/70 px-6 py-3 text-rose-700 shadow-sm ring-1 ring-rose-100 backdrop-blur transition-colors hover:bg-white"
+            href="#artworks"
+            className="pointer-events-auto rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-medium text-blue-100/90 backdrop-blur-md transition-colors hover:bg-white/10"
           >
-            See the love
+            See my art
           </a>
         </motion.div>
       </div>
